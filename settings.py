@@ -1,4 +1,4 @@
-import random
+import pygame
 
 class Settings:
     
@@ -8,27 +8,22 @@ class Settings:
         width = 1200
         height = 800
         self.display_size = (width, height)
-        self.bg_color = (0, 0, 0)
+        self.bg_color = (150, 150, 150)
         
-        # Size for target img
-        # TODO Make img change size according to time/score
-        target_w = 50 # Width
-        target_h = 50 # Height
-        self.target_size = (target_w, target_h)
-        self.targets_spawned = 0
+        # Set font
+        self.myfont = pygame.font.SysFont("monospace", 32)
         
-        # Set spawn delay
-        self.spawn_delay = 1000
-        
+        # Set FPS
+        self.fps = 60
         # Score
-        self.score = 0
+        self.score = 10
+        self.score_text = self.myfont.render("Score: " +str(self.score),1, (0, 0, 0))
+        # Target count
+        self.targets_in_list = 0
+        self.targets_on_screen = 0
+
+        self.targetsGroup = pygame.sprite.Group()
+
         
-        
-    def target_spawn(self):
-        # Target spawn points
-        target_spawn = (random.randrange(50,1150),random.randrange(50,750))
-        return target_spawn
-        
-    
-    def update_speed(self):
-        self.speed = self.speed
+    def update_score(self):
+        self.score += 1
