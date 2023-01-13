@@ -1,12 +1,12 @@
 # RING CLICKER 6000
     
-    Game gets faster with every point.
+Game gets faster with every point.
 
         Clone repository
 
         Install pygame
 
-        Click on
+        Click on targets
 
     
 
